@@ -1,33 +1,10 @@
-<h1>Listing tweets</h1>
+<p>
+<%= Twitter.status(344638947449765889).from_user_name %>
 
-<table>
-  <tr>
-    <th>Tweetid</th>
-    <th>Image</th>
-    <th>Name</th>
-    <th>Background</th>
-    <th>Date</th>
-    <th>Tweet</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @tweets.each do |tweet| %>
-  <tr>
-    <td><%= tweet.tweetid %></td>
-    <td><%= tweet.image %></td>
-    <td><%= tweet.name %></td>
-    <td><%= tweet.background %></td>
-    <td><%= tweet.date %></td>
-    <td><%= tweet.tweet %></td>
-    <td><%= link_to 'Show', tweet %></td>
-    <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
-    <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+</p>
 
-<br />
+<%= render 'formReadTweet' %>
 
-<%= link_to 'New Tweet', new_tweet_path %>
+
+<%= render 'formUpdateStatus' %>

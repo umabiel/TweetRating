@@ -1,13 +1,21 @@
 class Tweet < ActiveRecord::Base
-  attr_accessible :background, :date, :image, :name, :tweet, :tweetid
 
-Twitter.configure do |config|
-  config.consumer_key = 'fjvswaOT7FuPY9Oncn5PA'
-  config.consumer_secret = 'tGak7MAXanfWRMPPhMtQHXdPgaYdVi322Fl6Sn6iNlU'
-  
-  config.oauth_token = '71303913-71303913-TOmOLmwT0fq6E3qQOYKDNUxyp85tmMgFqtlRxP3E'
-  config.oauth_token_secret = '7fnKUrGdTOh55Jtkj0uS3DrG68TuVz8JC3qMrDzu2fE'
-end
+	Twitter.configure do |config|
+	  config.consumer_key = 'KUYcm2smheZi5v0ulHwUw'
+	  config.consumer_secret = 'ymMhsTLYkVyVBn2UdK1KWBNxEndFum4KBO7HTQ2q1xk'
+	  config.oauth_token = '71303913-bcuXffP0rGuqsE9IHGIqvJLUYn7PguxCOcDQyRaKn'
+	  config.oauth_token_secret = 'fkixKIXn9qaEY3S68N7Dpfz1jSTap2fewsAAuZd7X8'
+	end
 
+	def read_tweet
+		return "No input user" if self.user.blank?
+		# indicamos que obtenga el ultimo tweet del usuario que se envio
+		Twitter.user_timeline(self.user).first.text
+	end
+
+	def update_status
+		return "" if self.user.message.blank?
+		Twitter.update(self.message)
+	end
 
 end

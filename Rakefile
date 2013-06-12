@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-TwitterRatingUPC::Application.load_tasks
+UPCTwitter::Application.load_tasks

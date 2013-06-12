@@ -1,8 +1,10 @@
-TwitterRatingUPC::Application.routes.draw do
-  get "welcome/index"
+UPCTwitter::Application.routes.draw do
+
+  # rutas para el URL o REST :D (entendiendo :P )
+  match 'read_tweet' => "tweets#read_tweet"
+  match 'update_status' => "tweets#update_status"
 
   resources :tweets
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
