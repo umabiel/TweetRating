@@ -1,5 +1,29 @@
 <p>
-<%= Twitter.status(344638947449765889).from_user_name %>
+<%= Twitter.status(344638947449765889).to_json %>
+
+<% jTweet = JSON.parse(Twitter.status(344638947449765889).to_json) %>
+
+<table border="1">
+<tr>
+	<td>Usuario:</td>
+	<td><%= jTweet['user']['name'] %></td>
+</tr>
+<tr>
+	<td rowspan="2">
+		<%= image_tag(jTweet['user']['profile_background_image_url'], :size => "200x150", :alt => "Edit Entry") %>
+	</td>
+</tr>
+<tr>
+	<td>
+		<%= jTweet['text'] %><br />
+		<%= jTweet['user']['created_at'] %>
+	</td>
+</tr>
+
+</table>
+
+<br />
+
 
 
 </p>
