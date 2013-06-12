@@ -3,8 +3,8 @@ class TweetsController < ApplicationController
 
   # obtiene el tweet desde el metodo del modelo
   def read_tweet
-    @tweet = Tweet.new(params[:tweet])
-    #@tweet = JSON.parse(Twitter.status(params[:tweet]).to_json)
+    #@tweet = Tweet.new(params[:tweet])
+    @tweet = JSON.parse(Twitter.status(params[:tweet]).to_json)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tweet }

@@ -1,5 +1,3 @@
-require 'json'
-
 class Tweet < ActiveRecord::Base
 
 	Twitter.configure do |config|
@@ -13,12 +11,8 @@ class Tweet < ActiveRecord::Base
 		return "No input user" if self.user.blank?
 		# indicamos que obtenga el ultimo tweet del usuario que se envio
 
-		#tweet = JSON.parse(Twitter.status(self.user).to_json)
+		Twitter.status(params[:id])
 
-
-
-
-		Twitter.user_timeline(self.user).first.text
 	end
 
 	def update_status

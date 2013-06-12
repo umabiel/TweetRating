@@ -1,17 +1,15 @@
+<%= render 'formReadTweet' %>
+
+
 <p>
-<%= Twitter.status(344638947449765889).to_json %>
+<% Twitter.status(344583043593428992).to_json %>
 
-<% jTweet = JSON.parse(Twitter.status(344638947449765889).to_json) %>
+<% jTweet = JSON.parse(Twitter.status(344583043593428992).to_json) %>
 
-<table border="1">
+<table border="1" background="<%= jTweet['user']['profile_background_image_url'] %>">
 <tr>
-	<td>Usuario:</td>
+	<td><%= image_tag(jTweet['user']['profile_image_url'], :size => "200x150") %></td>
 	<td><%= jTweet['user']['name'] %></td>
-</tr>
-<tr>
-	<td rowspan="2">
-		<%= image_tag(jTweet['user']['profile_background_image_url'], :size => "200x150", :alt => "Edit Entry") %>
-	</td>
 </tr>
 <tr>
 	<td>
@@ -28,7 +26,5 @@
 
 </p>
 
-<%= render 'formReadTweet' %>
 
 
-<%= render 'formUpdateStatus' %>
