@@ -1,8 +1,8 @@
 UPCTwitter::Application.routes.draw do
-
+  root :to => 'tweets#index'
   # rutas para el URL o REST :D (entendiendo :P )
   match 'read_tweet' => "tweets#read_tweet"
-  match 'update_status' => "tweets#update_status"
+  
 
   resources :tweets
 
